@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "ml-engineer"
+version = "0.1.0"
+description = ""
+authors = ["Pavel Vladimirov"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+tabpfn = "^2.0.5"
+matplotlib = "^3.10.0"
+seaborn = "^0.13.2"
+catboost = "^1.2.7"
+numpy = "1.26.4"
+optuna = "^4.2.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

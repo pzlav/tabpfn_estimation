@@ -1,4 +1,11 @@
+test*
+
+.venv
 .idea
 __pycache__
 
 test_full.csv
+
+catboost_info/
+
+poetry.lock*
