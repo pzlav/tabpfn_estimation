@@ -45,12 +45,14 @@ def train_and_validate():
 def generate_final_solution():
     # combine train and validation to improve final predictions
     train_df = pd.read_csv('dataset/train.csv')
+    valid_df = pd.read_csv('dataset/validation.csv')
+    combined_df = pd.concat([train_df, valid_df], ignore_index=True)
     test_df = pd.read_csv('dataset/test.csv')
-    train_df = add_time_features(train_df)
-    train_df = train_df[train_df['year'] >= 2021] # use only 2021 and 2022 data
+    combined_df = add_time_features(combined_df)
+    combined_df = combined_df[combined_df['year'] >= 2021] # use only 2021 and 2022 data
     test_df = add_time_features(test_df)
-    X_train = train_df.drop('rate', axis=1)
-    y_train = train_df['rate']
+    X_train = combined_df.drop('rate', axis=1)
+    y_train = combined_df['rate']
 
     model = Model()
     predicted_rates = model.fit_predict(X_train, y_train, test_df)
